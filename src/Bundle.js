@@ -128,7 +128,6 @@ Ext.define('elmasse.i18n.Bundle', {
         return me.callParent([proxy]);
     },
 
-
     /**
      * @method: getMsg
      * Returns the content associated with the bundle key or {bundle key}.undefined if it is not specified.
