@@ -2,23 +2,12 @@
 
 `elmasse.i18n.Bundle` as a Sencha Cmd Package.
 
-## UPDATE
-
-This repository is going on UNMAINTAINED state. I will be more than happy to transfer the repository to anyone who is interested in keeping this up to date with latest versions of ExtJS. Please create an issue or send me an email (Check my Profile)
-
 ## Note
 Since **version 1.1.0** namespace has been changed from `Ext.i18n` to `elmasse.i18n` to avoid namespace issues with ExtJS reserved package names.
 
 ## Install
-The `latest` stable version is available thru a Sencha Cmd repository located at [elmasse.github.io/cmd/pkgs](http://elmasse.github.io/cmd/pkgs)
-
-### Add the repo to Sencha Cmd
-You have to tell Sencha Cmd where to check for new pacakge versions. For `elmasse-bundle` you need to add the repository as follows:
-
-```
-sencha repo add elmasse http://elmasse.github.io/cmd/pkgs
-
-```
+create a new package
+sencha generate package [-classic] elmasse-bundle
 
 ### Using the package
 Once the repository is added to the list, you can declare your dependency on your Sencha Cmd project. Locate the `app.json` file and add `elmasse-bundle` package to the `requires` list:
@@ -164,6 +153,24 @@ We can use the lazy definition so the bundle keys are defined into the views. Ju
 ```
 
 ## Changelog
+
+### version 1.3.0
+- Working JSON with subobjects
+    Example:
+    {
+        app: {
+            title: 'foo',
+            subtitle: 'baa'
+        }
+    }
+- added placeholder support for views
+    Example:
+    // Application_us-US
+    greetings: 'Hi {0}'
+    // view.main.js
+    title: { type: 'bundle', key: 'greetings', args: 'Customer' }
+    // output
+    Hi Customer
 
 ### Unreleased (master)
 - Fixed issue with using lazy definitions in Ext.define not working properly. #30
