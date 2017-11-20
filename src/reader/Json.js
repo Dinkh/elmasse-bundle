@@ -8,9 +8,7 @@ Ext.define('elmasse.i18n.reader.Json', {
         var me = this,
             records = [],
             Model = me.getModel(),
-            length = root.length,
-            keys, key, parts, value,
-            convertedValues, node, record, i, j;
+            node, record, i, j;
 
         // my
         if (!root.length && Ext.isObject(root)) {
