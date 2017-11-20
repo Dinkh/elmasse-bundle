@@ -286,14 +286,22 @@ Ext.define('elmasse.i18n.Bundle', {
             //replace class configs
             for(k in config){
                 if(config.hasOwnProperty(k) && config[k] && typeof config[k] === 'object' && config[k].type && config[k].type === 'bundle'){
-                    config[k] = elmasse.i18n.Bundle.instance.getMsg(config[k].key);
+                    if(instanceConfig[k]['args']) {
+                        config[k] = elmasse.i18n.Bundle.instance.getMsg(config[k].key, config[k]['args']);
+                    } else {
+                        config[k] = elmasse.i18n.Bundle.instance.getMsg(config[k].key);
+                    }
                 }
             }
 
             //replace instanceConfigs
             for(k in instanceConfig){
                 if(instanceConfig.hasOwnProperty(k) && instanceConfig[k] && typeof instanceConfig[k] === 'object' && instanceConfig[k].type && instanceConfig[k].type === 'bundle'){
-                    instanceConfig[k] = elmasse.i18n.Bundle.instance.getMsg(instanceConfig[k].key);
+                    if(instanceConfig[k]['args']) {
+                        instanceConfig[k] = elmasse.i18n.Bundle.instance.getMsg(instanceConfig[k].key, instanceConfig[k]['args']);
+                    } else {
+                        instanceConfig[k] = elmasse.i18n.Bundle.instance.getMsg(instanceConfig[k].key);
+                    }
                 }
             }
 
