@@ -7,7 +7,10 @@ Since **version 1.1.0** namespace has been changed from `Ext.i18n` to `elmasse.i
 
 ## Install
 create a new package
+```
 sencha generate package [-classic] elmasse-bundle
+```
+copy elmasse-bundle into package
 
 ### Using the package
 Once the repository is added to the list, you can declare your dependency on your Sencha Cmd project. Locate the `app.json` file and add `elmasse-bundle` package to the `requires` list:
